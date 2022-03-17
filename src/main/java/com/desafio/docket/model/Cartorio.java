@@ -26,7 +26,7 @@ public class Cartorio {
 	@Column(name="NOME_CARTORIO")
 	private String nomeCartorio;
 	
-	@Column(name="NOME_ENDERECO")
+	@Column(name="ENDERECO")
 	private String endereco;
 	
 	@ManyToOne(fetch= FetchType.EAGER)
