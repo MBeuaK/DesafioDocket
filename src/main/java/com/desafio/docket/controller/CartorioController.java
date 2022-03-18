@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.desafio.docket.model.Cartorio;
@@ -26,7 +25,6 @@ public class CartorioController extends BaseController {
 	private CartorioRepository cartorioRepository;
 
 	@GetMapping("/cartorio/buscar")
-	@ResponseBody
 	public String cartorios(Model model) {
 		model.addAttribute("listaCartorio", cartorioRepository.findAll());
 		
@@ -41,7 +39,6 @@ public class CartorioController extends BaseController {
 	}
 	
 	@GetMapping("cartorio/novo")
-	@ResponseBody
 	public String novaPessoa(Model model) {
 		
 		model.addAttribute("cartorio", new Cartorio());
@@ -50,7 +47,6 @@ public class CartorioController extends BaseController {
 	}
 	
 	@GetMapping("/cartorio/{id}")
-	@ResponseBody
 	public String alterarCartorio(@PathVariable("id") long id, Model model) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);
 		if (!cartorioOpt.isPresent()) {
@@ -63,7 +59,6 @@ public class CartorioController extends BaseController {
 	}
 	
 	@PostMapping("/cartorio/salvar")
-	@ResponseBody
 	public String salvarPessoa(@Valid @ModelAttribute("cartorio") Cartorio cartorio, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "rh/pessoas/form";
@@ -74,7 +69,6 @@ public class CartorioController extends BaseController {
 	}
 	
 	@GetMapping("/cartorio/excluir/{id}")
-	@ResponseBody
 	public String excluirCartorio(@PathVariable("id") long id) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);
 		if (!cartorioOpt.isPresent()) {
