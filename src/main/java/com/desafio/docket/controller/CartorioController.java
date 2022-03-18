@@ -61,7 +61,7 @@ public class CartorioController extends BaseController {
 		return "redirect:/Cartorio/cartorios";
 	}
 	
-	@GetMapping("/cartorio/excluir-cartorio/excluir/{id}")
+	@GetMapping("/cartorio/excluir-cartorio/{id}")
 	@ResponseBody
 	public String excluirCartorio(@PathVariable("id") long id) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);

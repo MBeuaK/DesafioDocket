@@ -27,7 +27,7 @@
 					<td th:text="${cartorio.endereco}"></td>
 					<td>
 						<a th:href="@{/cartorio/editar-cartorio/{id}(id=${cartorio.id})}" class="btn btn-primary">Alterar</a>
-						<a th:href="@{/cartorio/{id}(id=${cartorio.id})}" class="btn btn-danger">Excluir</a>			
+						<a th:href="@{/cartorio/excluir-cartorio/{id}(id=${cartorio.id})}" class="btn btn-danger">Excluir</a>			
 					</td>
 				</tr>
 			</tbody>
