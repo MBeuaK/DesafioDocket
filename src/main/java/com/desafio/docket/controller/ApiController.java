@@ -11,7 +11,7 @@ public class ApiController {
     @GetMapping
     @RequestMapping({"/", "/home"})
     public String healthCheck() {
-        return "Alive!";
+        return "/home";
     }
 
 }
