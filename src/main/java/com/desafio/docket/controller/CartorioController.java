@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.desafio.docket.model.Cartorio;
 import com.desafio.docket.repository.CartorioRepository;
 
+import io.swagger.annotations.ApiOperation;
+
 
 @Controller
 public class CartorioController extends BaseController {
@@ -23,6 +25,7 @@ public class CartorioController extends BaseController {
 	@Autowired
 	private CartorioRepository cartorioRepository;
 
+	@ApiOperation(value = "Busca todos os cartorios", notes = "Busca todos os Cartorios")
 	@GetMapping("/cartorio/cartorios")
 	public String cartorios(Model model) {
 		model.addAttribute("listaCartorios", cartorioRepository.findAll());
@@ -30,6 +33,7 @@ public class CartorioController extends BaseController {
 		return "cartorio/index";
 	}
 	
+	@ApiOperation(value = "Cadastra um cartorio", notes = "Cadastra um Cartorio")
 	@GetMapping("/cartorio/novo")
 	public String novoCartorio(Model model) {
 		
@@ -38,6 +42,7 @@ public class CartorioController extends BaseController {
 		return "cartorio/form";
 	}
 	
+	@ApiOperation(value = "Edita um cartorio pelo id", notes = "Edita um cartorio pelo id")
 	@GetMapping("/cartorio/editar-cartorio/{id}")
 	public String alterarCartorio(@PathVariable("id") long id, Model model) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);
@@ -60,6 +65,8 @@ public class CartorioController extends BaseController {
 		return "redirect:/cartorio/cartorios";
 	}
 	
+	
+	@ApiOperation(value = "Remove um cartorio pelo id", notes = "Remove um cartorio pelo id")
 	@GetMapping("/cartorio/excluir-cartorio/{id}")
 	public String excluirCartorio(@PathVariable("id") long id) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);

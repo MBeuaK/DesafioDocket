@@ -12,6 +12,8 @@ import com.desafio.docket.model.dto.BaseResponseDTO;
 import com.desafio.docket.service.CertidaoService;
 import com.desafio.docket.util.MensagemUtil;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/v1/certidao")
 public class CertidaoController extends BaseController{
@@ -21,6 +23,7 @@ public class CertidaoController extends BaseController{
 	CertidaoService certidaoService;
 	
 	
+	@ApiOperation(value = "Busca todas as certidões", notes = "Busca todas as certidões")
 	@GetMapping(value = "/buscar")
 	public ResponseEntity<BaseResponseDTO> buscar() {
 		try {
