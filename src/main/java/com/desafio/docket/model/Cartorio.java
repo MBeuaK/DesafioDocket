@@ -1,11 +1,11 @@
 package com.desafio.docket.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,8 +29,12 @@ public class Cartorio {
 	@Column(name="ENDERECO")
 	private String endereco;
 	
-	@ManyToOne(fetch= FetchType.EAGER)
-	@MapsId
+	@ManyToOne(cascade=CascadeType.PERSIST,fetch= FetchType.LAZY)
 	private Certidao certidao;
+	
+	
+	public Cartorio(String nomeCartorio) {
+		this.nomeCartorio = nomeCartorio;
+	}
 
 }

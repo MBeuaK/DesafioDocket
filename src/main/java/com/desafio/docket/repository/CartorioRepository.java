@@ -7,5 +7,5 @@ import com.desafio.docket.model.Cartorio;
 
 @Repository
 public interface CartorioRepository extends JpaRepository<Cartorio, Long> {
-
+	
 }

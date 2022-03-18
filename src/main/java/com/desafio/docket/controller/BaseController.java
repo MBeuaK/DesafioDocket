@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.desafio.docket.model.dto.BaseResponseDTO;
 
-public abstract class BaseController {
+public abstract class BaseController{
 
 	protected static final String ERROR = "error";
 	protected static final String NOT_FOUND = "not found";

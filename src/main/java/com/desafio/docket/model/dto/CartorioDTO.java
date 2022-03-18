@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartorioDTO {
+public class CartorioDTO{
 	
+	private Long id;
 	private String nomeCartorio;
 	private String endereco;
 	private Long idCertidao;
