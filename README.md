@@ -2,9 +2,9 @@
 Projeto é um desafio proposto pela Empresa Docket para vaga de Desenvolvedor Java Junior.
 
 ## Utilização da API...
-- Para iniciar a aplicação tem que chamar o /home.
+- A aplicação pode ser iniciada pelo / ou por um /home.
 
-> http://localhost:8080/home
+> http://localhost:8080
 
 ## Como executar...
 Este aplicativo é empacotado como um war que possui o Tomcat 8 incorporado. Nenhuma instalação do Tomcat ou JBoss é necessária. 
