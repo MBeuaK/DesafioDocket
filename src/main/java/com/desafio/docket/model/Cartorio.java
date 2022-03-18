@@ -1,14 +1,14 @@
 package com.desafio.docket.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class Cartorio {
 	
 	@Id
-	@Column(name = "ID", unique = true, columnDefinition = "int default 1")
+	@Column(name = "ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
@@ -33,9 +33,8 @@ public class Cartorio {
 	@Column(name="ENDERECO")
 	private String endereco;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST,fetch= FetchType.LAZY)
-	@JoinColumn(name = "FK_CERTIDAO", nullable = true, columnDefinition = "int default 1")
-	private Certidao certidao;
+	@OneToMany(mappedBy = "cartorio", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Certidao> certidoes;
 	
 	
 	public Cartorio(String nomeCartorio) {

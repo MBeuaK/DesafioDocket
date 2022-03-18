@@ -26,20 +26,20 @@ public class CartorioController extends BaseController {
 
 	@GetMapping("/cartorio/cartorios")
 	public String cartorios(Model model) {
-		model.addAttribute("listaCartorio", cartorioRepository.findAll());
+		model.addAttribute("listaCartorios", cartorioRepository.findAll());
 		
 		return "Cartorio/index";
 	}
 	
-	@GetMapping("cartorio/novo")
+	@GetMapping("/cartorio/novo")
 	public String novoCartorio(Model model) {
 		
-		model.addAttribute("cartorio", new Cartorio());
+		model.addAttribute("cartorio", new Cartorio(""));
 		
-		return "cartorio/form";
+		return "Cartorio/form";
 	}
 	
-	@GetMapping("/cartorio/{id}")
+	@GetMapping("/cartorio/editar-cartorio/{id}")
 	public String alterarCartorio(@PathVariable("id") long id, Model model) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);
 		if (!cartorioOpt.isPresent()) {
@@ -48,20 +48,20 @@ public class CartorioController extends BaseController {
 		
 		model.addAttribute("cartorio", cartorioOpt.get());
 		
-		return "cartorio/form";
+		return "Cartorio/form";
 	}
 	
 	@PostMapping("/cartorio/salvar")
 	public String salvarCartorio(@Valid @ModelAttribute("cartorio") Cartorio cartorio, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
-			return "rh/pessoas/form";
+			return "cartorio/form";
 		}
 		
 		cartorioRepository.save(cartorio);
-		return "redirect:/cartorio/buscar";
+		return "redirect:/Cartorio/cartorios";
 	}
 	
-	@GetMapping("/cartorio/excluir/{id}")
+	@GetMapping("/cartorio/excluir-cartorio/excluir/{id}")
 	@ResponseBody
 	public String excluirCartorio(@PathVariable("id") long id) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);
@@ -70,7 +70,7 @@ public class CartorioController extends BaseController {
 		}
 		
 		cartorioRepository.delete(cartorioOpt.get());
-		return "redirect:/cartorio/buscar";
+		return "redirect:/Cartorio/index";
 	}
 
 }
