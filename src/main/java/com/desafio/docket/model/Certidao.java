@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Certidao {
 	
 	@Id
-	@Column(name = "ID", unique = true)
+	@Column(name = "ID", unique = true, columnDefinition = "int default 1")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	

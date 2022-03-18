@@ -24,7 +24,7 @@ public class CartorioService {
 	public Object cadastrarCartorio(CartorioDTO cartorioDTO) {
 		Cartorio cartorio = new Cartorio();
 
-		Optional<Cartorio> c = cartorioRepository.findById(cartorioDTO.getIdCertidao());
+		Optional<Cartorio> c = cartorioRepository.findById(cartorioDTO.getId());
 		if (c.isPresent()) {
 			throw new IllegalArgumentException(
 					MessageFormat.format(MensagemUtil.CARTORIO_EXISTENTE, cartorioDTO.getNomeCartorio()));

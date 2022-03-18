@@ -12,7 +12,7 @@
 	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
-		<a th:href="@{/cartorio/index}" class="btn btn-primary btn-sm mb-3">Cadastrar Cartório</a>
+		<a th:href="@{/cartorio/novo}" class="btn btn-primary btn-sm mb-3">Cadastrar Cartório</a>
 		<h1>Cartório</h1>
 		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
@@ -22,12 +22,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="cartorio : ${listaCartorios.content}">
+				<tr th:each="cartorio : ${listaCartorios}">
 					<td th:text="${cartorio.nome}"></td>
 					<td th:text="${cartorio.endereco}"></td>
 					<td>
-						<a th:href="@{/api/v1/cartorio/editar-cartorio/{id}(id=${cartorio.id})}" class="btn btn-primary">Alterar</a>
-						<a th:href="@{/api/v1/cartorio/{id}(id=${cartorio.id})}" class="btn btn-danger">Excluir</a>			
+						<a th:href="@{/cartorio/editar-cartorio/{id}(id=${cartorio.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/cartorio/{id}(id=${cartorio.id})}" class="btn btn-danger">Excluir</a>			
 					</td>
 				</tr>
 			</tbody>
