@@ -18,7 +18,9 @@
 			
 			<span th:if="${#fields.hasErrors('nomeCartorio')}" th:errors="*{nomeCartorio}" class="text-danger"></span>
 			<input type="text" th:field="*{nomeCartorio}" placeholder="Nome do Cartório" class="form-control mb-4 col-4">
-      		<input type="text" th:field="*{endereco}" placeholder="Endereço do Cartório" class="form-control mb-4 col-4"> 
+      		
+      		<span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}" class="text-danger"></span>
+      		<input type="text" th:field="*{endereco}" placeholder="Endereço do Cartório" class="form-control mb-4 col-4">
 			
 			<button type="submit" class="btn btn-info col-2">Salvar</button>
 		</form>

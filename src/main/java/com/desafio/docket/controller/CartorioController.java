@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.desafio.docket.model.Cartorio;
 import com.desafio.docket.repository.CartorioRepository;
@@ -28,7 +27,7 @@ public class CartorioController extends BaseController {
 	public String cartorios(Model model) {
 		model.addAttribute("listaCartorios", cartorioRepository.findAll());
 		
-		return "Cartorio/index";
+		return "cartorio/index";
 	}
 	
 	@GetMapping("/cartorio/novo")
@@ -36,7 +35,7 @@ public class CartorioController extends BaseController {
 		
 		model.addAttribute("cartorio", new Cartorio(""));
 		
-		return "Cartorio/form";
+		return "cartorio/form";
 	}
 	
 	@GetMapping("/cartorio/editar-cartorio/{id}")
@@ -48,7 +47,7 @@ public class CartorioController extends BaseController {
 		
 		model.addAttribute("cartorio", cartorioOpt.get());
 		
-		return "Cartorio/form";
+		return "cartorio/form";
 	}
 	
 	@PostMapping("/cartorio/salvar")
@@ -58,11 +57,10 @@ public class CartorioController extends BaseController {
 		}
 		
 		cartorioRepository.save(cartorio);
-		return "redirect:/Cartorio/cartorios";
+		return "redirect:/cartorio/cartorios";
 	}
 	
 	@GetMapping("/cartorio/excluir-cartorio/{id}")
-	@ResponseBody
 	public String excluirCartorio(@PathVariable("id") long id) {
 		Optional<Cartorio> cartorioOpt = cartorioRepository.findById(id);
 		if (!cartorioOpt.isPresent()) {
@@ -70,7 +68,7 @@ public class CartorioController extends BaseController {
 		}
 		
 		cartorioRepository.delete(cartorioOpt.get());
-		return "redirect:/Cartorio/index";
+		return "redirect:/cartorio/cartorios";
 	}
 
 }

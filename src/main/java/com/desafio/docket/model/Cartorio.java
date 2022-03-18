@@ -13,12 +13,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 @Table(name="T_CARTORIO")
 public class Cartorio {
 	
@@ -33,7 +35,7 @@ public class Cartorio {
 	@Column(name="ENDERECO")
 	private String endereco;
 	
-	@OneToMany(mappedBy = "cartorio", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "cartorio", cascade = CascadeType.ALL)
 	private List<Certidao> certidoes;
 	
 	
