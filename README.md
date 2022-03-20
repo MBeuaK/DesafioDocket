@@ -12,7 +12,7 @@ Este aplicativo é empacotado como um war que possui o Tomcat 8 incorporado. Nen
 Você o executa usando o java -jarcomando.
 - Verifique se você está usando o JDK 1.8 e o Maven 3.x
 - Clonar este repositório com o comando:
-> git clone https://github.com/MBeuaK/Desafio-Maxima-Tech.git
+> git clone https://github.com/MBeuaK/DesafioDocket.git
 - Rodar o script dump.sql para criar a estrutura do banco de dados e fazer um carga inicial:
 > Atenção: O script se encontra na pasta: src -> main -> resource -> dump.sql
 - Execute o comando:
